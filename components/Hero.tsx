@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Lottie from 'lottie-react';
 
 interface HoverImage {
   src: string;
@@ -11,19 +12,15 @@ interface HoverImage {
 
 const hoverImages: Record<string, HoverImage> = {
   muscle: {
-    src: '/images/muscle-hover.gif',
+    src: '/SalihDotTv/images/muscle-hover.gif',
     alt: 'Motion work showcase',
   },
-  lottie: {
-    src: '/images/lottie-hover.gif',
-    alt: 'Lottie animation showcase',
-  },
   desktop: {
-    src: '/images/desktop-hover.gif',
+    src: '/SalihDotTv/images/desktop-hover.gif',
     alt: 'Desktop work showcase',
   },
   mobile: {
-    src: '/images/mobile-hover.gif',
+    src: '/SalihDotTv/images/mobile-hover.gif',
     alt: 'Mobile work showcase',
   },
 };
@@ -32,12 +29,20 @@ export default function Hero() {
   const [hoveredEmoji, setHoveredEmoji] = useState<string | null>(null);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
+  const [lottieData, setLottieData] = useState<object | null>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    fetch('/SalihDotTv/animations/hero-animation.json')
+      .then(res => res.json())
+      .then(data => setLottieData(data))
+      .catch(err => console.error('Failed to load Lottie animation:', err));
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -73,30 +78,24 @@ export default function Hero() {
             onMouseEnter={() => !isMobile && setHoveredEmoji('lottie')}
             onMouseLeave={() => setHoveredEmoji(null)}
           >
-            <Image
-              src="/images/lottie-logo.png"
+            <img
+              src="/SalihDotTv/images/lottie-logo.png"
               alt="Lottie"
-              width={100}
-              height={40}
-              className="inline-block h-[0.9em] w-auto align-middle -mt-1"
+              className="inline-block h-[1em] w-auto align-middle"
             />
           </span>
           , the open-source animation tool used by hundreds of thousands of companies worldwide.
           <br className="hidden md:block" />
           I bring ideas to life across ALL platforms—from{' '}
           <span
-            className="inline-block align-middle cursor-pointer"
-            onMouseEnter={() => !isMobile && setHoveredEmoji('desktop')}
-            onMouseLeave={() => setHoveredEmoji(null)}
+            className="inline-block align-middle"
             aria-label="desktop computer"
           >
             🖥️
           </span>{' '}
           to{' '}
           <span
-            className="inline-block align-middle cursor-pointer"
-            onMouseEnter={() => !isMobile && setHoveredEmoji('mobile')}
-            onMouseLeave={() => setHoveredEmoji(null)}
+            className="inline-block align-middle"
             aria-label="mobile phone"
           >
             📱
@@ -107,7 +106,7 @@ export default function Hero() {
 
       {/* Cursor-following hover image */}
       <AnimatePresence>
-        {hoveredEmoji && hoverImages[hoveredEmoji] && !isMobile && (
+        {hoveredEmoji && !isMobile && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -119,15 +118,26 @@ export default function Hero() {
               top: cursorPos.y + 10,
             }}
           >
-            <div className="relative w-72 h-48 overflow-hidden rounded-lg shadow-2xl">
-              <Image
-                src={hoverImages[hoveredEmoji].src}
-                alt={hoverImages[hoveredEmoji].alt}
-                fill
-                className="object-cover"
-                sizes="288px"
-                unoptimized
-              />
+            <div className={`relative w-72 h-48 overflow-hidden rounded-lg shadow-2xl ${hoveredEmoji === 'lottie' ? 'bg-black' : 'bg-white'}`}>
+              {hoveredEmoji === 'lottie' && lottieData ? (
+                <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                  <Lottie
+                    animationData={lottieData}
+                    loop={true}
+                    className="w-full min-h-full object-cover"
+                    style={{ minWidth: '100%', minHeight: '100%', marginTop: '-10px' }}
+                  />
+                </div>
+              ) : hoverImages[hoveredEmoji] ? (
+                <Image
+                  src={hoverImages[hoveredEmoji].src}
+                  alt={hoverImages[hoveredEmoji].alt}
+                  fill
+                  className="object-cover"
+                  sizes="288px"
+                  unoptimized
+                />
+              ) : null}
             </div>
           </motion.div>
         )}
