@@ -11,17 +11,9 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link
-            href="/"
-            className={`text-sm font-medium transition-colors ${
-              pathname === '/' ? 'text-foreground' : 'text-muted hover:text-foreground'
-            }`}
-          >
-            Work
-          </Link>
-          <Link
             href="/about"
             className={`text-sm font-medium transition-colors ${
-              pathname === '/about' ? 'text-foreground' : 'text-muted hover:text-foreground'
+              pathname === '/about' || pathname === '/' ? 'text-foreground' : 'text-muted hover:text-foreground'
             }`}
           >
             About
