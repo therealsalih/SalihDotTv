@@ -15,7 +15,7 @@ export function getProjectSlugs(): string[] {
 
 export function getAllTags(): string[] {
   const tags = getAllProjects().flatMap((project) => project.tags);
-  return [...new Set(tags)].sort();
+  return Array.from(new Set(tags)).sort();
 }
 
 export function getProjectsByTag(tag: string): Project[] {
