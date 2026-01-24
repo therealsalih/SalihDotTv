@@ -12,15 +12,15 @@ interface HoverImage {
 
 const hoverImages: Record<string, HoverImage> = {
   muscle: {
-    src: '/SalihDotTv/images/muscle-hover.gif',
+    src: '/images/muscle-hover.gif',
     alt: 'Motion work showcase',
   },
   desktop: {
-    src: '/SalihDotTv/images/desktop-hover.gif',
+    src: '/images/desktop-hover.gif',
     alt: 'Desktop work showcase',
   },
   mobile: {
-    src: '/SalihDotTv/images/mobile-hover.gif',
+    src: '/images/mobile-hover.gif',
     alt: 'Mobile work showcase',
   },
 };
@@ -39,7 +39,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    fetch('/SalihDotTv/animations/hero-animation.json')
+    fetch('/animations/hero-animation.json')
       .then(res => res.json())
       .then(data => setLottieData(data))
       .catch(err => console.error('Failed to load Lottie animation:', err));
@@ -79,7 +79,7 @@ export default function Hero() {
             onMouseLeave={() => setHoveredEmoji(null)}
           >
             <img
-              src="/SalihDotTv/images/lottie-logo.png"
+              src="/images/lottie-logo.png"
               alt="Lottie"
               className="inline-block h-[1em] w-auto align-middle"
             />

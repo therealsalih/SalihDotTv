@@ -14,7 +14,8 @@
       "Bash(ssh-add:*)",
       "Bash(npm run build:*)",
       "Bash(git checkout:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git pull:*)"
     ]
   }
 }
