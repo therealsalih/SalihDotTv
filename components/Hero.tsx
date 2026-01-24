@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import Lottie from 'lottie-react';
 
 interface HoverImage {
@@ -137,13 +136,10 @@ export default function Hero() {
                   />
                 </div>
               ) : hoverImages[hoveredEmoji] ? (
-                <Image
+                <img
                   src={hoverImages[hoveredEmoji].src}
                   alt={hoverImages[hoveredEmoji].alt}
-                  fill
-                  className="object-cover"
-                  sizes="288px"
-                  unoptimized
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               ) : null}
             </div>
