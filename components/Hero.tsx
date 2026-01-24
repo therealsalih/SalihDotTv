@@ -45,6 +45,14 @@ export default function Hero() {
       .catch(err => console.error('Failed to load Lottie animation:', err));
   }, []);
 
+  // Preload hover images
+  useEffect(() => {
+    Object.values(hoverImages).forEach((image) => {
+      const img = new window.Image();
+      img.src = image.src;
+    });
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isMobile) return;
     setCursorPos({ x: e.clientX, y: e.clientY });
