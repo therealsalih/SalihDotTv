@@ -39,6 +39,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable}`}>
+      <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https://i.vimeocdn.com https://vumbnail.com data:; frame-src https://player.vimeo.com; font-src 'self' data:; connect-src 'self'; media-src 'self';"
+        />
+      </head>
       <body className="min-h-screen">
         <Header />
         <PageTransition>

@@ -21,6 +21,7 @@ export default function VimeoEmbed({ vimeoId, title }: VimeoEmbedProps) {
         className="absolute inset-0 w-full h-full"
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
+        sandbox="allow-scripts allow-same-origin allow-presentation"
       />
     </motion.div>
   );
