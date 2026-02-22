@@ -15,7 +15,7 @@ const hoverImages: Record<string, HoverImage> = {
     alt: 'Motion work showcase',
   },
   lottie: {
-    src: '/images/lottie-hover.gif',
+    src: '/images/LottieLogo1.gif',
     alt: 'Lottie animation showcase',
   },
 };
