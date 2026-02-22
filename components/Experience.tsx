@@ -34,7 +34,7 @@ const experiences: ExperienceItem[] = [
   {
     company: 'Freelance',
     role: 'Motion Designer / Creative Director',
-    period: '2002 - 2012',
+    period: '2002 - 2020',
     description:
       "Worked with studios like Gretel, Hush, 1st Avenue Machine, Shilo, Perception, Adolescent and more. For clients like HBO, Nickelodeon, Discovery Channel, Nike, TV One, Sony Ericsson, Nintendo, Microsoft, HTC, Johnson & Johnson, Comedy Central, Cox and more. Other projects ranged from Rihanna's \"Rude Boy\" music video, Mos Def promos, a small piece in The Avengers—and lastly won a Silver BDA for BET Awards (2009).",
   },
