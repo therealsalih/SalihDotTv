@@ -18,14 +18,6 @@ const hoverImages: Record<string, HoverImage> = {
     src: '/images/lottie-hover.gif',
     alt: 'Lottie animation showcase',
   },
-  desktop: {
-    src: '/images/desktop-hover.gif',
-    alt: 'Desktop work showcase',
-  },
-  mobile: {
-    src: '/images/mobile-hover.gif',
-    alt: 'Mobile work showcase',
-  },
 };
 
 export default function Hero() {
@@ -84,21 +76,11 @@ export default function Hero() {
           , the open-source animation tool used by hundreds of thousands of companies worldwide.
           <br className="hidden md:block" />
           I bring ideas to life across ALL platforms—from{' '}
-          <span
-            className="inline-block align-middle cursor-pointer"
-            onMouseEnter={() => !isMobile && setHoveredEmoji('desktop')}
-            onMouseLeave={() => setHoveredEmoji(null)}
-            aria-label="desktop computer"
-          >
+          <span className="inline-block align-middle" aria-label="desktop computer">
             🖥️
           </span>{' '}
           to{' '}
-          <span
-            className="inline-block align-middle cursor-pointer"
-            onMouseEnter={() => !isMobile && setHoveredEmoji('mobile')}
-            onMouseLeave={() => setHoveredEmoji(null)}
-            aria-label="mobile phone"
-          >
+          <span className="inline-block align-middle" aria-label="mobile phone">
             📱
           </span>
           —and I'm passionate about using motion to simplify, engage, and delight.
