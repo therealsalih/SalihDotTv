@@ -3,12 +3,12 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="py-16 mt-16">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a
           href="mailto:salih@colabgroup.com"
           className="text-sm text-muted hover:text-foreground transition-colors"
         >
-          salih@colabgroup.com
+          ✉️ salih@colabgroup.com
         </a>
         <p className="flex items-center gap-1.5 text-xs text-muted">
           Made with
