@@ -53,6 +53,19 @@ export default function Hero() {
     setCursorPos({ x: e.clientX, y: e.clientY });
   };
 
+  const getPopupPosition = () => {
+    const popupW = 288; // w-72
+    const popupH = 192; // h-48
+    const offset = 20;
+    const x = cursorPos.x + offset + popupW > window.innerWidth
+      ? cursorPos.x - offset - popupW
+      : cursorPos.x + offset;
+    const y = cursorPos.y + offset + popupH > window.innerHeight
+      ? cursorPos.y - offset - popupH
+      : cursorPos.y + offset;
+    return { x, y };
+  };
+
   return (
     <section
       className="pt-16 pb-8 md:pt-24 md:pb-12 lg:pt-32 lg:pb-16"
@@ -123,8 +136,8 @@ export default function Hero() {
             transition={{ duration: 0.15, ease: 'easeOut' }}
             className="fixed pointer-events-none z-50"
             style={{
-              left: cursorPos.x + 20,
-              top: cursorPos.y + 10,
+              left: getPopupPosition().x,
+              top: getPopupPosition().y,
             }}
           >
             <div className="relative w-72 h-48 overflow-hidden rounded-lg shadow-2xl">
