@@ -28,10 +28,14 @@ const hoverImages: Record<string, HoverImage> = {
   },
 };
 
+const EMAIL = 'salih@colabgroup.com';
+
 export default function Hero() {
   const [hoveredEmoji, setHoveredEmoji] = useState<string | null>(null);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
+  const [emailHovered, setEmailHovered] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -66,6 +70,16 @@ export default function Hero() {
     return { x, y };
   };
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(EMAIL);
+    setEmailHovered(true);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+      setEmailHovered(false);
+    }, 2000);
+  };
+
   return (
     <section
       className="pt-16 pb-8 md:pt-24 md:pb-12 lg:pt-32 lg:pb-16"
@@ -78,7 +92,37 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.3] md:leading-[1.35] tracking-tight text-foreground"
         >
-          I'm <strong className="font-semibold">Salih</strong>, an Experience Designer &amp;{' '}
+          I'm{' '}
+          <span className="relative inline-block">
+            <strong
+              className="font-semibold cursor-pointer underline underline-offset-4 decoration-1"
+              onMouseEnter={() => setEmailHovered(true)}
+              onMouseLeave={() => setEmailHovered(false)}
+              onClick={handleCopyEmail}
+            >
+              Salih
+            </strong>
+            <AnimatePresence>
+              {emailHovered && (
+                <motion.button
+                  initial={{ opacity: 0, y: 6, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.95 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                  onClick={handleCopyEmail}
+                  onMouseEnter={() => setEmailHovered(true)}
+                  onMouseLeave={() => setEmailHovered(false)}
+                  className="absolute left-0 top-full mt-2 px-3 py-2 bg-foreground text-background font-sans font-normal rounded-md whitespace-nowrap z-50 cursor-pointer flex flex-col items-start gap-0.5"
+                >
+                  <span className="text-sm">{EMAIL}</span>
+                  <span className="text-xs opacity-50">
+                    {copied ? 'Copied' : 'click to copy'}
+                  </span>
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </span>
+          , an Experience Designer &amp;{' '}
           Motion Specialist with 20+ years of work{' '}
           <span
             className="inline-block align-middle cursor-pointer"
