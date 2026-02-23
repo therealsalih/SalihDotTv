@@ -22,7 +22,7 @@ const experiences: ExperienceItem[] = [
     role: 'Experience Design Lead',
     period: '2015 - 2021',
     description:
-      "I was Airbnb's first motion designer — the only one in a 60-designer org. On the Design Language System team (Material Design Award, 2016), I worked with guest, host, payments and trust teams to bring motion into core flows. I co-built Lottie during Hack Week (with Brandon Withrow and Gabriel Peal) and helped open-source it, now used worldwide. I also wrote animation patterns and tutorials that made motion practical and scalable across the company.",
+      "I was Airbnb's first motion designer — the only one in a 60-designer org. On the Design Language System team (Material Design Award, 2016), I worked with guest, host, payments and trust teams to bring motion into core flows. I co-built Lottie during Hack Week (with Brandon Withrow, Gabriel Peal and Hernan Torrisi) and helped open-source it, now used worldwide. I also wrote animation patterns and tutorials that made motion practical and scalable across the company.",
   },
   {
     company: 'Square',
