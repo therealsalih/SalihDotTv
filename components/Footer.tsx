@@ -8,7 +8,7 @@ export default function Footer() {
           href="mailto:salih@colabgroup.com"
           className="text-xs text-muted hover:text-foreground transition-colors"
         >
-          ✉️ salih@colabgroup.com
+          📬 salih@colabgroup.com
         </a>
         <p className="flex items-center gap-1.5 text-xs text-muted">
           Made with
