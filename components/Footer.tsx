@@ -13,7 +13,7 @@ export default function Footer() {
             height={14}
             className="inline-block"
           />
-          Claude Code ❤️
+          Claude Code &nbsp;❤️
         </p>
       </div>
     </footer>
