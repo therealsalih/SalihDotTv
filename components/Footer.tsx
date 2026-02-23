@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a
           href="mailto:salih@colabgroup.com"
-          className="text-sm text-muted hover:text-foreground transition-colors"
+          className="text-xs text-muted hover:text-foreground transition-colors"
         >
           ✉️ salih@colabgroup.com
         </a>
