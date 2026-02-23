@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 
 const inter = Inter({
@@ -54,6 +55,7 @@ export default function RootLayout({
         <PageTransition>
           <main>{children}</main>
         </PageTransition>
+        <Footer />
       </body>
     </html>
   );
