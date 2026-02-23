@@ -44,6 +44,10 @@ export default function RootLayout({
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https://i.vimeocdn.com https://vumbnail.com data:; frame-src https://player.vimeo.com; font-src 'self' data:; connect-src 'self'; media-src 'self';"
         />
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>"
+        />
       </head>
       <body className="min-h-screen">
         <Header />
