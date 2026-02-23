@@ -40,6 +40,14 @@ export default function Hero() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Preload all hover GIFs so they're cached before the user hovers
+  useEffect(() => {
+    Object.values(hoverImages).forEach(({ src }) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isMobile) return;
     setCursorPos({ x: e.clientX, y: e.clientY });
