@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="py-16 mt-16">
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <a
           href="mailto:salih@colabgroup.com"
           className="text-xs text-muted hover:text-foreground transition-colors"
