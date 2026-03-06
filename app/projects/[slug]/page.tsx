@@ -57,26 +57,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Info panel - right side on desktop */}
         <div className="lg:w-80 flex flex-col justify-between shrink-0">
           <div>
-            {/* Back link */}
-            <Link
-              href="/#work"
-              className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors mb-6"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            {/* Navigation */}
+            <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
+              <Link
+                href={`/projects/${prevProject.slug}`}
+                className="px-5 py-2 rounded-full bg-black text-white text-sm hover:bg-black/80 transition-all"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Back to Work
-            </Link>
+                Prev
+              </Link>
+
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className="px-5 py-2 rounded-full bg-black text-white text-sm hover:bg-black/80 transition-all"
+              >
+                Next
+              </Link>
+            </div>
 
             {/* Title */}
             <h1 className="font-display text-3xl font-bold mb-4">
@@ -128,50 +124,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="pt-6 border-t border-white/10 mt-6">
-            <div className="flex justify-between items-center">
-              <Link
-                href={`/projects/${prevProject.slug}`}
-                className="group flex items-center gap-2 text-muted hover:text-foreground transition-colors"
-              >
-                <svg
-                  className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                <span className="text-sm">{prevProject.title}</span>
-              </Link>
-
-              <Link
-                href={`/projects/${nextProject.slug}`}
-                className="group flex items-center gap-2 text-muted hover:text-foreground transition-colors"
-              >
-                <span className="text-sm">{nextProject.title}</span>
-                <svg
-                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </div>
