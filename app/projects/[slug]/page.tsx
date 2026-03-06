@@ -45,8 +45,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
+      {/* Top nav */}
+      <nav className="flex items-center gap-6 px-6 py-4 shrink-0">
+        <Link href="/" className="text-sm text-muted hover:text-foreground transition-colors">About</Link>
+        <Link href="/work" className="text-sm text-muted hover:text-foreground transition-colors">Work</Link>
+        <Link href="/career" className="text-sm text-muted hover:text-foreground transition-colors">Career</Link>
+      </nav>
+
       {/* Main content area */}
-      <div className="flex-1 flex flex-col lg:flex-row pt-20 px-6 pb-6 gap-6 min-h-0">
+      <div className="flex-1 flex flex-col lg:flex-row px-6 pb-6 gap-6 min-h-0">
         {/* Video - left side on desktop */}
         <div className="flex-1 min-h-0 flex flex-col">
           <div className="flex-1 min-h-0">
@@ -55,8 +62,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         {/* Info panel - right side on desktop */}
-        <div className="lg:w-80 flex flex-col justify-between shrink-0">
-          <div>
+        <div className="lg:w-80 flex flex-col shrink-0">
             {/* Navigation */}
             <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
               <Link
@@ -122,7 +128,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               )}
             </div>
-          </div>
 
         </div>
       </div>

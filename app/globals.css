@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Modern Era';
+  src: url('/fonts/ModernEra-Regular_3216520077.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Modern Era';
+  src: url('/fonts/ModernEra-Italic_1845686288.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Modern Era';
+  src: url('/fonts/ModernEra-Light_446080689.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Modern Era';
+  src: url('/fonts/ModernEra-Medium_1138874139.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Modern Era';
+  src: url('/fonts/ModernEra-Bold_2943356473.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Modern Era';
+  src: url('/fonts/ModernEra-ExtraBold_572435778.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Modern Era';
+  src: url('/fonts/ModernEra-Black_1565521558.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
