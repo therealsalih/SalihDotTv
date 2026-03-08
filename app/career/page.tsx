@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 // ─── Color utility ─────────────────────────────────────────────────────────────
 
@@ -208,21 +207,12 @@ export default function CareerPage() {
 
   return (
     <div className="fixed inset-0 z-50 select-none" style={{ fontFamily: "'Modern Era', sans-serif" }}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={slide.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="absolute inset-0"
-        >
-          {slide.type === 'dark' && <DarkSlideComp slide={slide} />}
-          {slide.type === 'chapter' && <ChapterSlideComp slide={slide} />}
-          {slide.type === 'how-i-work' && <HowIWorkSlideComp slide={slide} />}
-          {slide.type === 'testimonials' && <TestimonialsSlideComp slide={slide} />}
-        </motion.div>
-      </AnimatePresence>
+      <div className="absolute inset-0">
+        {slide.type === 'dark' && <DarkSlideComp slide={slide} />}
+        {slide.type === 'chapter' && <ChapterSlideComp slide={slide} />}
+        {slide.type === 'how-i-work' && <HowIWorkSlideComp slide={slide} />}
+        {slide.type === 'testimonials' && <TestimonialsSlideComp slide={slide} />}
+      </div>
 
       {/* Navigation */}
       <nav className="absolute bottom-6 left-0 right-0 px-8 flex items-center justify-between z-10 pointer-events-none">
