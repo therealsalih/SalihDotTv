@@ -60,7 +60,7 @@ export default function Experience() {
               <h3 className="text-xl font-semibold text-foreground mb-1">
                 {exp.company}
               </h3>
-              <p className="text-xs uppercase tracking-wider text-muted mb-4">
+              <p className="text-[10px] uppercase tracking-wider text-muted mb-4">
                 {exp.role} &nbsp;&nbsp; {exp.period}
               </p>
               <p className="text-sm leading-relaxed text-muted">
